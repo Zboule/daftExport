@@ -9,7 +9,7 @@ export async function sendEmail (listing: string,links: string[]) {
 
     var params = {
         Destination: {
-          ToAddresses: ['jordane.cure@gmail.com'],
+          ToAddresses: ['jordane.cure@gmail.com','alexanyan.n@gmail.com'],
         },
         Message: {
           Body: {
