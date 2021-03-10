@@ -2,7 +2,20 @@ import { extractLinks, getPageContent } from './helper/extract'
 import { getSavedContent, uploadContent } from './helper/storage'
 import { sendEmail } from './helper/emailSender'
 
-let search = "https://www.daft.ie/property-for-rent/mapArea?geoSearchType=BBOX&top=53.35916563936891&left=-6.344186027168234&right=-6.146530829248064&bottom=53.31134045103778&mapView=true&showMap=false&rentalPrice_from=2200&rentalPrice_to=3000&sort=publishDateDesc&numBeds_to=2"
+
+
+
+let search = `https://www.daft.ie/property-for-rent/mapArea?geoSearchType=BBOX
+                &top=53.3652
+                &left=-6.2695
+                &right=-6.2538
+                &bottom=53.3484
+                &mapView=true
+                &showMap=false
+                &rentalPrice_from=2000
+                &rentalPrice_to=3000
+                &sort=publishDateDesc
+                &numBeds_to=2`
 
 export const handler = async (event: any = {}): Promise<any> => {
     let savedContent = await getSavedContent()
@@ -23,9 +36,7 @@ export const handler = async (event: any = {}): Promise<any> => {
         console.log('Send an email')
         await sendEmail(search,newAddedContent)
     }
-    else {
-        await sendEmail(search, [])
-    }
+  
     return newAddedContent
 }
 
